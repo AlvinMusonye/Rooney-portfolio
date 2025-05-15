@@ -95,7 +95,7 @@ export default function Portfolio() {
             </p>
           </div>
           <div className="image-section w-full md:w-1/2">
-            <img src="/001A7865.jpg" alt="Alvin" className="w-full grayscale rounded-xl" />
+            <img src="/profile.jpeg" alt="Alvin" className="w-full grayscale rounded-xl" />
           </div>
         </section>
 
