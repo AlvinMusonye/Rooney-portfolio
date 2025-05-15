@@ -1,7 +1,7 @@
-// Updated Portfolio.jsx for Photographer/Videographer Portfolio with Framer Motion Page Transitions
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Card, CardContent } from "./components/ui/card";
+import { Card, CardContent } from "./components/ui/Card";
 
 
 
