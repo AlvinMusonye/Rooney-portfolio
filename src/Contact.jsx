@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function BookingForm() {
   const [formData, setFormData] = useState({
@@ -15,24 +16,41 @@ export default function BookingForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Booking Details:", formData);
-    alert("Thank you for booking! I’ll get back to you shortly.");
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      sessionType: "",
-      date: "",
-      message: "",
-    });
+  
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+  
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      sessionType: formData.sessionType,
+      date: formData.date,
+      message: formData.message,
+    };
+  
+    try {
+      const result = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+      alert("Booking submitted! I'll get back to you shortly.");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        sessionType: "",
+        date: "",
+        message: "",
+      });
+    } catch (error) {
+      alert("Failed to send email. Please try again later.");
+      console.error("EmailJS error:", error);
+    }
   };
-
   return (
     <section id="booking" className="bg-white py-16 px-6 md:px-16 text-black">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
-        {/* Form */}
         <form
           onSubmit={handleSubmit}
           className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-lg"
@@ -111,11 +129,10 @@ export default function BookingForm() {
           </div>
         </form>
 
-        {/* Contact Info */}
         <div className="flex flex-col justify-center bg-black text-white p-8 rounded-xl shadow-lg">
           <h3 className="text-xl font-semibold mb-4">Contact Info</h3>
           <p className="mb-2">📍 Nairobi, Kenya</p>
-          <p className="mb-2">📞 +254 712 345 678</p>
+          <p className="mb-2">📞 +254 114013369</p>
           <p className="mb-2">✉️ paper@photography.com</p>
           <p className="text-sm text-gray-300 mt-6">
             I usually respond within 24 hours. Feel free to reach out for custom projects too!
