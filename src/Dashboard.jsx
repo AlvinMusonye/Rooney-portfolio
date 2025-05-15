@@ -87,17 +87,19 @@ export default function Portfolio() {
           </motion.div>
         </section>
 
-        <section id="about" className="py-16 flex flex-col md:flex-row items-center">
-          <div className="text-section max-w-2xl mb-8 md:mb-0 md:mr-8">
-            <h3 className="text-2xl font-bold mb-6">About Me</h3>
-            <p className="text-gray-700">
-              I'm Paper, a passionate photographer and videographer based in Nairobi. I specialize in event, portrait, and commercial shoots, capturing the beauty of every moment through my lens.
-            </p>
-          </div>
-          <div className="image-section w-full md:w-1/2">
-            <img src="/profile.jpeg" alt="Alvin" className="w-full grayscale rounded-xl" />
-          </div>
-        </section>
+        <section id="about" className="py-12 flex flex-col md:flex-row items-center md:items-start gap-8">
+  <div className="text-section w-full md:w-1/2">
+    <h3 className="text-2xl font-bold mb-4">About Me</h3>
+    <p className="text-gray-700">
+      I'm Paper, a passionate photographer and videographer based in Nairobi. I specialize in event, portrait, and commercial shoots, capturing the beauty of every moment through my lens.
+      m, nvkjnsjkbskgejkagsbgskgks gjkgb,j asf hkvhvvhvhjjhdxdcthhvjnvj hvbkvkjuhfyvjhvjhh
+      wefeff
+    </p>
+  </div>
+  <div className="image-section w-full md:w-1/2">
+    <img src="/profile.jpeg" alt="Alvin" className="w-full grayscale rounded-xl object-cover" />
+  </div>
+</section>
 
         <section id="showcase" className="py-16">
           <h3 className="text-2xl font-bold mb-6">Showcase</h3>
